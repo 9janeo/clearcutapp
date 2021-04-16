@@ -17,6 +17,10 @@
 
 <% end %>
 
+<span>
+    <%= link_to('Settings', "admin#settings") %>
+</span>
+
 <h1>Dashboard</h1> 
 <span><%= (current_user.superadmin_role?) ? "Admin" : ((current_user.supervisor_role?) ? "Supervisor" : "User") %> </span>
 
