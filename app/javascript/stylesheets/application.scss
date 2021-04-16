@@ -1,2 +1,10 @@
 // app/javascript/stylesheets/application.scss
-@import 'toastr'
+@import 'toastr';
+
+// /* tailwind */
+
+@import 'tailwindcss/base';
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";

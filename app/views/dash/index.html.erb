@@ -1,3 +1,15 @@
+<h1>Dashboard</h1> 
+<span><%= (current_user.superadmin_role?) ? "Admin" : ((current_user.supervisor_role?) ? "Supervisor" : "User") %> </span>
+
+<% if current_user.superadmin_role? || current_user.supervisor_role? %>
+	<p>Visible only for superadmins and supervisors! </p>
+<% end %>
+
+<h2>Orders</h2>
+<h2>Estimates</h2>
+<h2>Keywords</h2>
+
+<div class="w-100">
 <% if current_user.nil? %>
 	<%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
 <% else %>
@@ -20,14 +32,5 @@
 <span>
     <%= link_to('Settings', "admin#settings") %>
 </span>
+</dvi>
 
-<h1>Dashboard</h1> 
-<span><%= (current_user.superadmin_role?) ? "Admin" : ((current_user.supervisor_role?) ? "Supervisor" : "User") %> </span>
-
-<% if current_user.superadmin_role? || current_user.supervisor_role? %>
-	<p>Visible only for superadmins and supervisors! </p>
-<% end %>
-
-<h2>Orders</h2>
-<h2>Estimates</h2>
-<h2>Keywords</h2>
