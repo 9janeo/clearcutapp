@@ -1,39 +1,38 @@
-<nav class="flex flex-row" role="navigation" style="padding:10px">
-  <!-- Brand and toggle should be grouped -->
-  <div class="navbar-header md:none">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-nav">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="/">
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
         <%= image_tag("Logo.png", size: "40x40") %>
-    </a>
-  </div>
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
 
-  <!-- Application navigation links -->
-  <div class="collapse navbar-collapse flex flex-row" id="app-nav">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><%= link_to "Home", dash_index_path, class: "nav-link px-2 text-secondary" %></li>
+        <li><%= link_to "About", dash_index_path, class: "nav-link px-2 text-white" %></li>
+        <li><a class="nav-link px-2 text-white" href="#">Contact</a></li>
+      </ul>
 
-    <ul class="nav nav-pills navbar-left">
-      <li class="active"><%= link_to "Home", dash_index_path %></li>
-      <li><%= link_to "About", dash_index_path %></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    
-    <ul class="nav nav-pills navbar-right">
-      <!-- Check if user signed in -->
-        # <li class=""><!-- link_to "Log In", new_user_session_path, class: "btn btn-primary" --></li>
-        # <li class=""><!-- link_to "Sign Up", new_user_registration_path, class: "btn btn-success" --></li>
-      <!-- Else -->
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
-        <!-- Style to include profile pic, order details, payment info and spacing -->
-        <ul class="dropdown-menu">
-         
-        </ul>
-      </li>
-        <!-- end -->
-    </ul>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+      </form>
+
+      <div class="text-end">
+        <% unless user_signed_in? %>
+          <li class=""><%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %></li>
+          <li class=""><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success" %></li>
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        <% else %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
+            <!-- Style to include profile pic, order details, payment info and spacing -->
+              <ul class="dropdown-menu">
+                <li class=""><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %></li>
+                <li class=""><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %></li>
+              </ul>
+          </li>
+        <% end %>        
+      </div>
+    </div>
   </div>
-</nav>
+</header>
