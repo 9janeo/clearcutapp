@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   namespace :admin do
     # Add dashboard for your models here
     resources :users

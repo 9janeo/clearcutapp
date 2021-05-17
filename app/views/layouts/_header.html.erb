@@ -18,57 +18,29 @@
 
       <div class="text-end">
         <% unless user_signed_in? %>
-          <li class=""><%= link_to "Log In", new_user_session_path, class: "btn btn-primary" %></li>
-          <li class=""><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success" %></li>
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          <div class="flex-shrinnk-0 dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">          
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownAccounts">
+              <li class=""><%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %></li>
+              <li class=""><%= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
+            </ul>
+          </div>
         <% else %>
-        <div class="flex-shrinnk-0 dropdown">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          
-          </a>
-          <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-            <!-- Style to include profile pic, order details, payment info and spacing -->
-              <li class=""><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
-              <li class=""><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-          </ul>
-        </div>
-        <% end %>        
+          <div class="flex-shrinnk-0 dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+              <!-- Style to include profile pic, order details, payment info and spacing -->
+                <li class=""><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
+                <li class=""><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            </ul>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </header>
-
-<span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="Disabled tooltip">
-  <button class="btn btn-primary" type="button" disabled>Disabled button</button>
-</span>
-<div>
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-  Tooltip on top
-</button>
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
-  Tooltip on right
-</button>
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
-  Tooltip on bottom
-</button>
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
-  Tooltip on left
-</button>
-</div>
-
-<div>
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Top popover">
-Popover on top
-</button>
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover">
-Popover on right
-</button>
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-Popover on bottom
-</button>
-<button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover">
-Popover on left
-</button>
-</div>
