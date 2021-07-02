@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   root to: "dash#index"
 
   resources :dash
+  resources :orders
 end

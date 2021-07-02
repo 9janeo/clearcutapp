@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  date: 2021-05-16
+  ordername: MyString
+  ordernumber: 1
+  status: MyString
+  notes: MyString
+
+two:
+  id: 2
+  date: 2021-05-17
+  ordername: MySecondString
+  ordernumber: 2
+  status: MySecondString
+  notes: MySecondString

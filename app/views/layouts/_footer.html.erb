@@ -1,4 +1,4 @@
-<header class="p-3 bg-dark text-white">
+<footer class="p-3 mt-5 bg-dark text-white">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -8,7 +8,6 @@
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><%= link_to "Home", dash_index_path, class: "nav-link px-2 text-secondary" %></li>
-        <li><%= link_to "Orders", orders_path, class: "nav-link px-2 text-white" %></li>
         <li><%= link_to "About", dash_index_path, class: "nav-link px-2 text-white" %></li>
         <li><a class="nav-link px-2 text-white" href="#">Contact</a></li>
       </ul>
@@ -43,5 +42,30 @@
         <% end %>
       </div>
     </div>
+    <div class="w-100">
+      <% if current_user.nil? %>
+        <%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
+      <% else %>
+        <%= link_to dash_index_path, class: 'login-button' do %>Go to App<% end %>
+        <%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
+      <% end %>
+  
+      <% if user_signed_in? %>
+  
+        <%= link_to('Edit registration', edit_user_registration_path) %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  
+      <% else %>
+  
+        <%= link_to('Register', new_user_registration_path)  %>
+        <%= link_to('Login', new_user_session_path)  %>  
+  
+      <% end %>
+  
+      <span>
+          <%= link_to('Settings', "admin#settings") %>
+      </span>
+    </div>
   </div>
-</header>
+
+</footer>
