@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light" role="navigation" style="padding:10px">
+  <!-- Brands and toggle should be grouped -->
+  <a class="navbar-brand" href="/">
+    <%= image_tag("logo.png", size: "40x40") %>
+  </a>
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggler" data-bs-toggler="collapse" data-bs-target="#app-nav" aria-controls="app-nav" aria-exoanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+
+  <!-- Application navigation links -->
+  <div class="collapse navbar-collapse" id="app-nav">
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item active"><%= link_to "Home", dash_index_path, class: 'nav-link active' %></li>
+      <li class="nav-item"><%= link_to "About", dash_index_path, class: 'nav-link' %></li>
+      <li class="nav-item"><%= link_to "Projects", dash_index_path, class: 'nav-link' %></li>
+      <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+    
+    <ul class="nav nav-pills navbar-right">
+      <% unless user_signed_in? %>
+        <li class=""><%= link_to "Log In", new_user_session_path, class: "btn btn-primary dropdown-item" %></li>
+        <li class=""><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success dropdown-item" %></li>
+      <% else %>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile<b class="caret"></b>
+        </a>
+        <!-- Style to include profile pic, order details, payment info and spacing -->
+          <ul class="dropdown-menu">
+            <li class=""><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li class=""><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger dropdown-item" %></li>
+          </ul>
+          <% end %>
+      </li>
+    </ul>
+
+    <!-- # Settings dropdown -->
+    <ul class="nav navbar-right">
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Settings<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li>
+          <% if current_user.nil? %>
+            <%= link_to new_user_session_path, class: 'login-button' do %>Sign in<% end %>
+          <% else %>
+            <%= link_to dash_index_path, class: 'login-button' do %>Go to App<% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
+          <% end %>
+          </li>
+          
+          <% if user_signed_in? %>
+          
+            <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          
+          <% else %>
+          
+            <li><%= link_to('Register', new_user_registration_path)  %></li>
+            <li><%= link_to('Login', new_user_session_path)  %> </li>
+          
+          <% end %>
+          
+          <li><span>
+              <%= link_to('Settings', "admin#settings") %>
+          </span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

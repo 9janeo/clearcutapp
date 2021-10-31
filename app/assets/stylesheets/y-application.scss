@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+//  @import 'bootstrap/scss/bootstrap.scss';
+
+ body {
+    // background: red;
+    h1{
+        color: #fff;
+    }
+}
