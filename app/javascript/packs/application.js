@@ -8,16 +8,33 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-// import "bootstrap/dist/css/bootstrap"
-// import "bootstrap/dist/js/bootstrap"
-
-//= require popper
-import "bootstrap"
-
-import "stylesheets/styles"
+// require("bootstrap")
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
 global.toastr = require("toastr")
+
+// import 'bootstrap/dist/js/bootstrap'
+// import 'bootstrap/dist/css/bootstrap'
+// require("stylesheets/application.scss")
+// import "stylesheets/styles"
+import "bootstrap"
+import { Tooltip, Popover } from 'bootstrap'
+import "../stylesheets/application.scss"
+
+// import "./custom"
+
+document.addEventListener("turbolinks:load", () => {  
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new Tooltip(tooltipTriggerEl)
+  })
+
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new Popover(popoverTriggerEl)
+  })
+  
+})
+

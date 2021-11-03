@@ -1,11 +1,24 @@
-
-
 <h1>Dashboard</h1> 
 <span><%= (current_user.superadmin_role?) ? "Admin" : ((current_user.supervisor_role?) ? "Supervisor" : "User") %> </span>
 
 <% if current_user.superadmin_role? || current_user.supervisor_role? %>
 	<p>Visible only for superadmins and supervisors! </p>
 <% end %>
+
+<div class="d-flex justify-content-center">
+	<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+		Tooltip on top
+	</button>
+	<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
+		Tooltip on right
+	</button>
+	<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+		Tooltip on bottom
+	</button>
+	<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+		Tooltip on left
+	</button>
+</div>
 
 <h2>Orders</h2>
 <h2>Estimates</h2>
