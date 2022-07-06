@@ -14,10 +14,13 @@
  *= require_self
  */
 //  @import 'bootstrap/scss/bootstrap.scss';
+@import './background';
 
- body {
-    // background: red;
+body {
+    @include redish;
+
     h1{
-        color: #fff;
+        // @include redish;
+        color: green;
     }
 }

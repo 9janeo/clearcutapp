@@ -1,9 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
-// @import 'background';
-// @import 'toastr';
-// @import 'bootstrap';
+// @use 'background';
+@import '../../assets/stylesheets/y-application.scss';
 
-body {
-    // @include background.redish;
-    // background:#f00;
-}
+@import '~bootstrap/scss/bootstrap';
